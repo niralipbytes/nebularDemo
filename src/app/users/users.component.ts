@@ -20,6 +20,8 @@ export class UsersComponent implements OnInit {
     delete: {
       deleteButtonContent: 'Delete',
       confirmDelete: true,
+      saveButtonContent: 'save',
+      cancelButtonContent: 'cancel'
     },
     columns: {
       id: {
@@ -52,5 +54,13 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onDeleteConfirm(event) {
+    console.log("Delete Event In Console")
+    console.log(event.data);
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
 }
