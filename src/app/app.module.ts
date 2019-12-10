@@ -11,10 +11,11 @@ import { NbThemeModule, NbLayoutModule,
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
-  NbWindowModule,NbCardModule, NbActionsModule, } from '@nebular/theme';
+  NbWindowModule, NbCardModule, NbActionsModule, NbIconModule, NbInputModule, } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { UsersComponent } from './users/users.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     AppRoutingModule,
     BrowserAnimationsModule,
     NbSidebarModule,
+    NbIconModule,
+    NbInputModule,
     NbMenuModule,
     NbDatepickerModule,
     NbDialogModule,
@@ -38,6 +41,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
+    HttpClientModule,
     Ng2SmartTableModule
   ],
   providers: [],

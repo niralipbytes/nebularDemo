@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../shared/rest-api.service';
 
 @Component({
   selector: 'app-users',
@@ -6,27 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+
   settings = {
     add: {
-      addButtonContent: 'Add',
-      createButtonContent: 'Create',
-      cancelButtonContent: 'Cancel',
+      addButtonContent: '<i class="fa fa-plus"></i>',
+      createButtonContent: '<i class="fa fa-user-plus" aria-hidden="true"></i>',
+      cancelButtonContent: '<i class="fa fa-times" aria-hidden="true"></i>',
+      confirmCreate: true,
     },
     edit: {
-      editButtonContent: 'Edit',
-      saveButtonContent: 'Save',
-      cancelButtonContent: 'Cancel',
+      editButtonContent: '<i class="fa fa-edit"></i>',
+      saveButtonContent: '<i class="fa fa-save"></i>',
+      cancelButtonContent: '<i class="fa fa-times" aria-hidden="true"></i>',
+      confirmSave: true,
     },
     delete: {
-      deleteButtonContent: 'Delete',
+      deleteButtonContent: '<i class="fa fa-trash"></i>',
       confirmDelete: true,
-      saveButtonContent: 'save',
-      cancelButtonContent: 'cancel'
     },
     columns: {
       id: {
         title: 'ID',
         type: 'number',
+        editable: false,
       },
       firstName: {
         title: 'First Name',
@@ -50,17 +53,52 @@ export class UsersComponent implements OnInit {
       },
     },
   };
-  constructor() { }
+
+  Users: any = [];
+  constructor( public restApi: RestApiService) { }
 
   ngOnInit() {
+    this.loadUsers();
   }
+
+   // Get User list
+   loadUsers() {
+    return this.restApi.getUsers().subscribe((data: {}) => {
+      this.Users = data;
+    });
+  }
+
+  // Add User
+  onCreateConfirm(event) {
+    console.log('event', event);
+    this.restApi.createUser(event.newData).subscribe((data) => {
+      if (data) {
+        event.confirm.resolve();
+      } else {
+        event.confirm.reject();
+      }
+    });
+  }
+
+  // Delete User
   onDeleteConfirm(event) {
-    console.log("Delete Event In Console")
-    console.log(event.data);
     if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+      this.restApi.deleteUser(event.data.id).subscribe(data => {
+        event.confirm.resolve();
+      });
     } else {
       event.confirm.reject();
     }
+  }
+
+  // Edit User
+  onSaveConfirm(event) {
+    this.restApi.updateUser(event.data.id, event.newData).subscribe(data => {
+      if (data) {
+        event.confirm.resolve();
+      } else {
+        event.confirm.reject();
+      }
+    });
   }
 }

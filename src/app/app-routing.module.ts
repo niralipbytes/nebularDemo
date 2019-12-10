@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 
 
-const routes: Routes = [ 
-  { 
-    path:'',
-    redirectTo:'users',
-    pathMatch:'full'
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'users',
+    pathMatch: 'full'
   },
   {
-    path:'users',
-    component:UsersComponent
+    path: 'users',
+    component: UsersComponent
   }
 ];
 

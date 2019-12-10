@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "age": "24",
+      "email": "nirali@gmail.com",
+      "firstName": "nirali",
+      "lastName": "parikh",
+      "username": "Nirali"
+    },
+    {
+      "id": "5",
+      "firstName": "Test4",
+      "lastName": "tedt",
+      "username": "test",
+      "email": "test@gmail.com",
+      "age": "20"
+    },
+    {
+      "id": "6",
+      "firstName": "sd",
+      "lastName": "sda",
+      "username": "asd",
+      "email": "adf",
+      "age": "74"
+    },
+    {
+      "id": "10",
+      "firstName": "qwe",
+      "lastName": "qwe",
+      "username": "qwe",
+      "email": "qwe",
+      "age": "10"
+    },
+    {
+      "id": "8",
+      "firstName": "werwe",
+      "lastName": "rwe",
+      "username": "rwe",
+      "email": "rwer",
+      "age": "10"
+    },
+    {
+      "id": "21",
+      "firstName": "qwe",
+      "lastName": "qweq",
+      "username": "weq",
+      "email": "weq",
+      "age": "74"
+    },
+    {
+      "id": "43",
+      "firstName": "qwe",
+      "lastName": "qwe",
+      "username": "qweqw",
+      "email": "eqwe",
+      "age": "4"
+    },
+    {
+      "id": "74",
+      "firstName": "weq",
+      "lastName": "we",
+      "username": "qweq",
+      "email": "weqw",
+      "age": "10"
+    },
+    {
+      "id": "123",
+      "firstName": "wera",
+      "lastName": "sa",
+      "username": "d",
+      "email": "asd",
+      "age": "74"
+    },
+    {
+      "id": "56",
+      "firstName": "sdfs",
+      "lastName": "dfsdf",
+      "username": "sdfs",
+      "email": "df",
+      "age": "56"
+    },
+    {
+      "id": "90",
+      "firstName": "dfg",
+      "lastName": "dfg",
+      "username": "dfg",
+      "email": "dfg",
+      "age": "71"
+    }
+  ]
+}
